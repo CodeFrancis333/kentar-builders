@@ -9,6 +9,7 @@ import ProjectsPage from './pages/ProjectsPage'
 import ServicesPage from './pages/ServicesPage'
 import TeamPage from './pages/TeamPage'
 import TermsPage from './pages/TermsPage'
+import ThankYouPage from './pages/ThankYouPage'
 
 function ScrollManager() {
   const location = useLocation()
@@ -54,6 +55,7 @@ function App() {
           <Route path="/" element={<HomeRoute />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/terms" element={<TermsPage />} />
+          <Route path="/thank-you" element={<ThankYouPage />} />
         </Routes>
       </main>
       <Footer />

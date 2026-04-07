@@ -12,6 +12,17 @@
     <script type="module" src="/src/main.jsx"></script>
   </head>
   <body class="bg-white">
+    <form name="project-inquiry" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="project-inquiry" />
+      <input type="text" name="full_name" />
+      <input type="email" name="email" />
+      <input type="tel" name="mobile_number" />
+      <input type="text" name="project_type" />
+      <input type="text" name="project_location" />
+      <input type="text" name="subject" />
+      <textarea name="message"></textarea>
+      <input type="text" name="bot-field" />
+    </form>
     <div id="root"></div>
   </body>
 </html>
