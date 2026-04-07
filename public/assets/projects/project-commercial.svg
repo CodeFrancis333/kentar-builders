@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#eef1f6"/>
+  <rect x="170" y="120" width="860" height="410" rx="26" fill="#001475"/>
+  <g fill="#fff">
+    <rect x="250" y="210" width="120" height="120"/>
+    <rect x="430" y="210" width="120" height="120"/>
+    <rect x="610" y="210" width="120" height="120"/>
+    <rect x="790" y="210" width="120" height="120"/>
+  </g>
+  <rect x="510" y="380" width="180" height="150" fill="#4ba800"/>
+  <text x="170" y="620" font-family="Arial, sans-serif" font-size="62" font-weight="700" fill="#001475">Commercial Project Image</text>
+</svg>

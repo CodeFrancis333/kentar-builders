@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#edf2ff"/>
+  <path d="M180 500h840v-220L600 130 180 280z" fill="#001475"/>
+  <rect x="300" y="350" width="170" height="150" fill="#fff"/>
+  <rect x="550" y="350" width="110" height="150" fill="#4ba800"/>
+  <rect x="760" y="350" width="140" height="150" fill="#fff"/>
+  <text x="180" y="600" font-family="Arial, sans-serif" font-size="62" font-weight="700" fill="#001475">Residence Project Image</text>
+</svg>

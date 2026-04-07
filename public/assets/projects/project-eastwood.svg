@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#eef8e6"/>
+  <rect x="110" y="90" width="220" height="460" fill="#001475"/>
+  <rect x="400" y="150" width="260" height="400" fill="#1632a2"/>
+  <rect x="730" y="60" width="250" height="490" fill="#001475"/>
+  <text x="110" y="620" font-family="Arial, sans-serif" font-size="62" font-weight="700" fill="#001475">Eastwood Project Image</text>
+</svg>
