@@ -1,17 +1,55 @@
+import { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { brandAssets, navigationLinks } from '../../data/company'
 
 function Header() {
   const location = useLocation()
   const navigate = useNavigate()
+  const [activeSection, setActiveSection] = useState('home')
+
+  useEffect(() => {
+    if (location.pathname !== '/') {
+      return undefined
+    }
+
+    const sectionIds = ['home', 'about', 'services', 'team', 'contact']
+
+    const updateActiveSection = () => {
+      const scrollY = window.scrollY
+      const threshold = 160
+      let currentSection = 'home'
+
+      sectionIds.forEach((id) => {
+        const element = document.getElementById(id)
+        if (!element) {
+          return
+        }
+
+        if (scrollY >= element.offsetTop - threshold) {
+          currentSection = id
+        }
+      })
+
+      setActiveSection(currentSection)
+    }
+
+    updateActiveSection()
+    window.addEventListener('scroll', updateActiveSection, { passive: true })
+    window.addEventListener('resize', updateActiveSection)
+
+    return () => {
+      window.removeEventListener('scroll', updateActiveSection)
+      window.removeEventListener('resize', updateActiveSection)
+    }
+  }, [location.pathname])
 
   const isActiveLink = (to) => {
     if (to === '/') {
-      return location.pathname === '/' && !location.hash
+      return location.pathname === '/' && activeSection === 'home'
     }
 
     if (to.startsWith('/#')) {
-      return location.pathname === '/' && location.hash === to.slice(1)
+      return location.pathname === '/' && activeSection === to.replace('/#', '')
     }
 
     return location.pathname === to
