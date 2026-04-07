@@ -70,8 +70,9 @@ function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-white/8 shadow-[0_12px_40px_rgba(0,20,117,0.16)] backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+    <header className="sticky top-0 z-50 bg-white">
+      <div className="border-b border-brandBlue/8 bg-white">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
         <Link
           to="/"
           onClick={handleBrandClick}
@@ -91,15 +92,15 @@ function Header() {
             </span>
           </span>
         </Link>
-        <nav className="hidden gap-3 text-sm font-semibold uppercase tracking-[0.18em] text-white/82 lg:flex">
+        <nav className="hidden items-center gap-2 rounded-full bg-[#f3f5fb] px-3 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_8px_24px_rgba(0,20,117,0.08)] lg:flex">
           {navigationLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
-              className={`rounded-full px-3 py-2 transition ${
+              className={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] transition ${
                 isActiveLink(link.to)
-                  ? 'bg-brandBlue/10 text-brandBlue'
-                  : 'text-brandGray/80 hover:text-brandGreen'
+                  ? 'bg-white text-brandBlue shadow-[0_8px_18px_rgba(0,20,117,0.12)]'
+                  : 'text-brandGray/80 hover:text-brandBlue'
               }`}
             >
               {link.label}
@@ -108,11 +109,13 @@ function Header() {
         </nav>
         <Link
           to="/#contact"
-          className="rounded-full border border-brandGreen bg-brandGreen px-5 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-brandBlue transition hover:border-white hover:bg-white hover:text-brandBlue"
+          className="rounded-full border border-brandGreen bg-brandGreen px-6 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-brandBlue shadow-[0_10px_24px_rgba(75,168,0,0.28)] transition hover:-translate-y-0.5 hover:bg-[#61c400]"
         >
           Request a Quote
         </Link>
       </div>
+      </div>
+      <div className="h-10 bg-[linear-gradient(180deg,rgba(21,45,170,0.12)_0%,rgba(21,45,170,0.5)_55%,rgba(0,20,117,0.95)_100%)]" />
     </header>
   )
 }
