@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { contactContent } from '../../data/company'
 
 const fieldConfig = {
@@ -9,6 +11,49 @@ const fieldConfig = {
 }
 
 function ContactForm() {
+  const navigate = useNavigate()
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+
+    const form = event.currentTarget
+    const formData = new FormData(form)
+    const encodedData = new URLSearchParams()
+
+    for (const [key, value] of formData.entries()) {
+      encodedData.append(key, value.toString())
+    }
+
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      navigate('/thank-you')
+      return
+    }
+
+    try {
+      setIsSubmitting(true)
+
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: encodedData.toString(),
+      })
+
+      if (!response.ok) {
+        throw new Error('Form submission failed')
+      }
+
+      navigate('/thank-you')
+    } catch (error) {
+      console.error(error)
+      window.alert('Unable to submit your inquiry right now. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
     <div className="rounded-[2rem] bg-[#f8faff] p-8 shadow-panel">
       <h3 className="font-display text-3xl uppercase text-brandBlue">{contactContent.formTitle}</h3>
@@ -16,9 +61,9 @@ function ContactForm() {
       <form
         name="project-inquiry"
         method="POST"
-        action="/thank-you"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
+        onSubmit={handleSubmit}
         className="mt-8 grid gap-5 md:grid-cols-2"
       >
         <input type="hidden" name="form-name" value="project-inquiry" />
@@ -57,9 +102,10 @@ function ContactForm() {
         </label>
         <button
           type="submit"
+          disabled={isSubmitting}
           className="rounded-full bg-brandGreen px-7 py-4 text-sm font-semibold uppercase tracking-[0.24em] text-brandBlue transition hover:bg-brandBlue hover:text-white"
         >
-          Send Inquiry
+          {isSubmitting ? 'Sending...' : 'Send Inquiry'}
         </button>
       </form>
     </div>
