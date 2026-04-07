@@ -5,6 +5,18 @@ function Header() {
   const location = useLocation()
   const navigate = useNavigate()
 
+  const isActiveLink = (to) => {
+    if (to === '/') {
+      return location.pathname === '/' && !location.hash
+    }
+
+    if (to.startsWith('/#')) {
+      return location.pathname === '/' && location.hash === to.slice(1)
+    }
+
+    return location.pathname === to
+  }
+
   const handleBrandClick = (event) => {
     if (location.pathname === '/' && !location.hash) {
       event.preventDefault()
@@ -41,9 +53,17 @@ function Header() {
             </span>
           </span>
         </Link>
-        <nav className="hidden gap-6 text-sm font-semibold uppercase tracking-[0.18em] text-white/82 lg:flex">
+        <nav className="hidden gap-3 text-sm font-semibold uppercase tracking-[0.18em] text-white/82 lg:flex">
           {navigationLinks.map((link) => (
-            <Link key={link.to} to={link.to} className="transition hover:text-brandGreen">
+            <Link
+              key={link.to}
+              to={link.to}
+              className={`rounded-full px-3 py-2 transition ${
+                isActiveLink(link.to)
+                  ? 'bg-brandBlue/10 text-brandBlue'
+                  : 'text-brandGray/80 hover:text-brandGreen'
+              }`}
+            >
               {link.label}
             </Link>
           ))}
