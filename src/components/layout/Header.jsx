@@ -70,9 +70,8 @@ function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-white">
-      <div className="border-b border-brandBlue/8 bg-white">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
+    <header className="sticky top-0 z-50 bg-transparent">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
         <Link
           to="/"
           onClick={handleBrandClick}
@@ -114,8 +113,6 @@ function Header() {
           Request a Quote
         </Link>
       </div>
-      </div>
-      <div className="h-10 bg-[linear-gradient(180deg,rgba(21,45,170,0.12)_0%,rgba(21,45,170,0.5)_55%,rgba(0,20,117,0.95)_100%)]" />
     </header>
   )
 }
