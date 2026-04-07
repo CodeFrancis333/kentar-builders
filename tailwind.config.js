@@ -11,8 +11,8 @@ export default {
         brandLimeMist: '#eef8e6',
       },
       fontFamily: {
-        display: ['"Franklin Gothic Heavy"', '"League Spartan"', 'sans-serif'],
-        body: ['"Century Gothic"', 'Montserrat', 'sans-serif'],
+        display: ['"Franklin Gothic Heavy"', '"Franklin Gothic Demi"', '"Arial Narrow Bold"', 'sans-serif'],
+        body: ['"Century Gothic"', 'Tahoma', 'Geneva', 'sans-serif'],
       },
       boxShadow: {
         panel: '0 20px 60px rgba(0, 20, 117, 0.12)',

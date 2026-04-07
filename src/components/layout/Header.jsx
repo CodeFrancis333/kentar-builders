@@ -6,9 +6,11 @@ function Header() {
   const location = useLocation()
   const navigate = useNavigate()
   const [activeSection, setActiveSection] = useState('home')
+  const [showHeroBlend, setShowHeroBlend] = useState(true)
 
   useEffect(() => {
     if (location.pathname !== '/') {
+      setShowHeroBlend(false)
       return undefined
     }
 
@@ -18,6 +20,8 @@ function Header() {
       const scrollY = window.scrollY
       const threshold = 160
       let currentSection = 'home'
+
+       setShowHeroBlend(scrollY < 24)
 
       sectionIds.forEach((id) => {
         const element = document.getElementById(id)
@@ -70,7 +74,13 @@ function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-brandBlue/10 bg-white/72 backdrop-blur-md">
+    <header
+      className={`sticky top-0 z-50 transition-colors duration-300 ${
+        showHeroBlend
+          ? 'bg-[linear-gradient(180deg,#ffffff_0%,#ffffff_58%,rgba(255,255,255,0.92)_68%,rgba(124,144,230,0.42)_82%,rgba(17,38,163,0.88)_100%)]'
+          : 'border-b border-white/10 bg-white/10 backdrop-blur-md'
+      }`}
+    >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
         <Link
           to="/"
