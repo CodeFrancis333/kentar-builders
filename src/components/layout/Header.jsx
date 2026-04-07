@@ -70,7 +70,7 @@ function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-transparent">
+    <header className="sticky top-0 z-50 border-b border-brandBlue/10 bg-white/72 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
         <Link
           to="/"

@@ -4,7 +4,7 @@ import { brandAssets, homeContent } from '../../data/company'
 function HeroSection() {
   return (
     <section id="home" className="relative overflow-hidden bg-brandBlue text-white">
-      <div className="absolute inset-x-0 top-0 h-32 bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(255,255,255,0.92)_34%,rgba(255,255,255,0.4)_62%,rgba(255,255,255,0)_100%)]" />
+      <div className="absolute inset-x-0 top-0 h-16 bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(255,255,255,0.8)_38%,rgba(255,255,255,0.08)_72%,rgba(255,255,255,0)_100%)]" />
       <div className="absolute inset-0 bg-grid bg-[size:44px_44px] opacity-30" />
       <div className="absolute -right-24 top-12 h-72 w-72 rounded-full bg-brandGreen/20 blur-3xl" />
       <div className="absolute left-0 top-1/2 h-80 w-80 -translate-x-1/3 rounded-full bg-white/10 blur-3xl" />
