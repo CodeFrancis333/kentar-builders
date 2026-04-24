@@ -1,9 +1,5 @@
-const gallery = (slug) => [
-  `/assets/projects/featured/${slug}/1.png`,
-  `/assets/projects/featured/${slug}/2.png`,
-  `/assets/projects/featured/${slug}/3.png`,
-  `/assets/projects/featured/${slug}/4.png`,
-]
+const gallery = (slug, count = 4) =>
+  Array.from({ length: count }, (_, index) => `/assets/projects/featured/${slug}/${index + 1}.png`)
 
 export const projectsContent = {
   introTitle: 'Project Experience Across Multiple Sectors',
@@ -131,13 +127,13 @@ export const projectsContent = {
     },
     {
       name: '2 Storey Commercial Building',
-      image: gallery('two-storey-commercial-building')[0],
-      gallery: gallery('two-storey-commercial-building'),
+      image: gallery('two-storey-commercial-building', 5)[0],
+      gallery: gallery('two-storey-commercial-building', 5),
       scope: 'Design and build',
       location: 'Brgy. Rizal, Santiago City, Isabela',
       client: 'Mr. & Mrs. Karl G. Julio',
       dateStarted: 'March 2025',
-      dateFinished: 'Ongoing (Bare Finished)',
+      dateFinished: 'November 2025',
       contractAmount: '3.5 Million',
       description:
         'An ongoing commercial design and build project that demonstrates the company’s continuing construction capability.',
